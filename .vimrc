@@ -108,10 +108,12 @@ nnoremap <leader>mo :py vimyaOpenLog ()<cr>
 vnoremap <leader>mr :py vimyaRefreshLog ()<cr>
 
 "NERDTree
-
 map <leader>d :NERDTreeToggle<CR>
 map <leader>e :NERDTreeFind<CR>
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
 let NERDTreeKeepTreeInNewTab=1
+
+"Tagbar
+map <leader>t :TagbarToggle<CR>
