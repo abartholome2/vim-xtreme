@@ -1,10 +1,11 @@
+set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vunde manage Vundle
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " originial repos on github
 Plugin 'tpope/vim-fugitive'
@@ -22,7 +23,7 @@ Plugin 'https://bitbucket.org/goeb/vimya.git'
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
 Plugin 'w0ng/vim-hybrid'
-
+call vundle#end()
 
 filetype plugin indent on
 let mapleader = ","
