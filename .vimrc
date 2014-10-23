@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sleuth'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -23,6 +24,8 @@ Plugin 'https://bitbucket.org/goeb/vimya.git'
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'terryma/vim-expand-region'
+Plugin 'godlygeek/tabular'
 call vundle#end()
 
 filetype plugin indent on
@@ -89,6 +92,9 @@ map <C-H> <C-W>h<C-W>_
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
 
+"save file
+nnoremap <leader>w :w<CR>
+
 nnoremap j gj
 nnoremap k gk
 
@@ -117,3 +123,14 @@ let NERDTreeKeepTreeInNewTab=1
 
 "Tagbar
 map <leader>t :TagbarToggle<CR>
+
+"Expand Region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
