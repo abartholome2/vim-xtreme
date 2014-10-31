@@ -26,6 +26,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'terryma/vim-expand-region'
 Plugin 'godlygeek/tabular'
+Plugin 'tikhomirov/vim-glsl'
 call vundle#end()
 
 filetype plugin indent on
@@ -128,9 +129,7 @@ map <leader>t :TagbarToggle<CR>
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-if exists(":Tabularize")
-  nmap <leader>a= :Tabularize /=<CR>
-  vmap <leader>a= :Tabularize /=<CR>
-  nmap <leader>a: :Tabularize /:\zs<CR>
-  vmap <leader>a: :Tabularize /:\zs<CR>
-endif
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
