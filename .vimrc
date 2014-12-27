@@ -21,12 +21,12 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'https://bitbucket.org/goeb/vimya.git'
-Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'terryma/vim-expand-region'
 Plugin 'godlygeek/tabular'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'neilagabriel/vim-geeknote'
 call vundle#end()
 
 filetype plugin indent on
@@ -133,3 +133,6 @@ nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:\zs<CR>
 vmap <leader>a: :Tabularize /:\zs<CR>
+
+"Geeknote
+noremap <leader>g :Geeknote<CR>
