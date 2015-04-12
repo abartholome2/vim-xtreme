@@ -21,13 +21,12 @@ Plugin 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'https://bitbucket.org/goeb/vimya.git'
-Plugin 'mileszs/ack.vim'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'terryma/vim-expand-region'
 Plugin 'godlygeek/tabular'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'neilagabriel/vim-geeknote'
-Plugin 'rking/ag.vim'
+Plugin 'gabesoft/vim-ags'
 Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
@@ -154,3 +153,17 @@ let g:ConqueTerm_StartMessages = 0
 let g:ycm_key_list_previous_completion=['<Up>']
 let g:UltiSnipsExpandTrigger="<c-enter>"
 let g:UltiSnipsListSnippets="<c-s-enter>"
+
+" AGS fix stupid args
+let g:ags_agargs = {
+						\ '--break'             : [ '', '' ],
+						\ '--color'             : [ '', '' ],
+						\ '--color-line-number' : [ '"1;30"', '' ],
+						\ '--color-match'       : [ '"32;40"', '' ],
+						\ '--color-path'        : [ '"1;31"', '' ],
+						\ '--column'            : [ '', '' ],
+						\ '--context'           : [ 'g:ags_agcontext', '-C', '3' ],
+						\ '--group'             : [ '', '' ],
+						\ '--heading'           : [ '', '-H' ],
+						\ '--max-count'         : [ 'g:ags_agmaxcount', '-m', '2000' ],
+						\ }
