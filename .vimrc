@@ -31,6 +31,7 @@ Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Bundle 'ervandew/supertab'
 call vundle#end()
 
 filetype plugin indent on
@@ -38,7 +39,7 @@ let mapleader = ","
 
 " Tabstops
 set tabstop=2
-set shiftwidth=2
+set shiftwidth=4
 set softtabstop=2
 set autoindent
 set wrapscan
@@ -149,10 +150,22 @@ let g:ConqueTerm_Color = 2
 let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_StartMessages = 0
 
+" Ultisnip
+" let g:UltiSnipsEnableSnipMate = 0 " don't look for SnipMate snippets, in the 'snippets' dir
+" let g:UltiSnipsSnippetDirectories=["snippets_UltiSnips"]
+
 " Fix YCM + snippets
-let g:ycm_key_list_previous_completion=['<Up>']
-let g:UltiSnipsExpandTrigger="<c-enter>"
-let g:UltiSnipsListSnippets="<c-s-enter>"
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<s-enter>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 
 " AGS fix stupid args
 let g:ags_agargs = {
