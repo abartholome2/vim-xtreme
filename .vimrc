@@ -29,6 +29,7 @@ Plugin 'tikhomirov/vim-glsl'
 Plugin 'neilagabriel/vim-geeknote'
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
+Plugin 'Raimondi/delimitMate'
 call vundle#end()
 
 filetype plugin indent on
