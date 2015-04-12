@@ -27,6 +27,7 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'godlygeek/tabular'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'neilagabriel/vim-geeknote'
+Plugin 'rking/ag.vim'
 call vundle#end()
 
 filetype plugin indent on
