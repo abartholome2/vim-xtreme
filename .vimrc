@@ -30,6 +30,8 @@ Plugin 'neilagabriel/vim-geeknote'
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
 Plugin 'Raimondi/delimitMate'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 call vundle#end()
 
 filetype plugin indent on
@@ -147,3 +149,8 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/
 let g:ConqueTerm_Color = 2
 let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_StartMessages = 0
+
+" Fix YCM + snippets
+let g:ycm_key_list_previous_completion=['<Up>']
+let g:UltiSnipsExpandTrigger="<c-enter>"
+let g:UltiSnipsListSnippets="<c-s-enter>"
