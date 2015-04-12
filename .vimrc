@@ -17,7 +17,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'https://bitbucket.org/goeb/vimya.git'
@@ -28,6 +28,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'neilagabriel/vim-geeknote'
 Plugin 'rking/ag.vim'
+Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
 call vundle#end()
 
 filetype plugin indent on
@@ -137,3 +138,11 @@ vmap <leader>a: :Tabularize /:\zs<CR>
 
 "Geeknote
 noremap <leader>g :Geeknote<CR>
+
+"YCM
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+"Conque
+let g:ConqueTerm_Color = 2
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_StartMessages = 0
