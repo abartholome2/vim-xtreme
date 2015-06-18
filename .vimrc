@@ -31,8 +31,12 @@ Plugin 'gabesoft/vim-ags'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Bundle 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ervandew/supertab'
+Plugin 'bling/vim-airline'
+Plugin 'c.vim', {'for': 'c'}
+Plugin 'justinmk/vim-syntax-extra', {'for': 'c'} " bison, flex, c syntax (operators, delimiters, functions..)
+Plugin 'hdima/python-syntax', {'for': 'python'} " neccesary, vim default python syntax has a regex bug as of 7.4.663
 call vundle#end()
 
 filetype plugin indent on
@@ -140,6 +144,15 @@ vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:\zs<CR>
 vmap <leader>a: :Tabularize /:\zs<CR>
 
+" Airline
+let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary with the powerline symbols
+set laststatus=2 " always show statusline
+set noshowmode " hide the default mode text (e.g. -- INSERT -- below the statusline)
+let g:airline#extensions#tabline#enabled = 1	" automatically displays all buffers when there's only one tab open
+"let g:airline#extensions#tabline#left_sep = ' ' " straight separators
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#buffer_idx_mode = 1	" display numbers in the tab line, and use mappings <leader>1 to <leader>9
+
 "Geeknote
 noremap <leader>g :Geeknote<CR>
 
@@ -152,8 +165,8 @@ let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_StartMessages = 0
 
 " Ultisnip
-" let g:UltiSnipsEnableSnipMate = 0 " don't look for SnipMate snippets, in the 'snippets' dir
-" let g:UltiSnipsSnippetDirectories=["snippets_UltiSnips"]
+let g:UltiSnipsEnableSnipMate = 0 " don't look for SnipMate snippets, in the 'snippets' dir
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " Fix YCM + snippets
 
