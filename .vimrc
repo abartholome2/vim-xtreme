@@ -11,7 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sleuth'
+" Plugin 'tpope/vim-sleuth'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
@@ -27,11 +27,12 @@ Plugin 'godlygeek/tabular'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'neilagabriel/vim-geeknote'
 Plugin 'gabesoft/vim-ags'
-Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
+" Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Bundle 'ervandew/supertab'
+Plugin 'nathanaelkane/vim-indent-guides'
 call vundle#end()
 
 filetype plugin indent on
@@ -180,3 +181,7 @@ let g:ags_agargs = {
 						\ '--heading'           : [ '', '-H' ],
 						\ '--max-count'         : [ 'g:ags_agmaxcount', '-m', '2000' ],
 						\ }
+
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_checker_args='--ignore=E501,E225'
+let g:syntastic_python_pylint_post_args="--max-line-length=120"
