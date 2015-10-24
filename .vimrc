@@ -1,4 +1,5 @@
-set nocompatible
+" set nocompatible
+" set nomodeline
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -11,32 +12,39 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-" Plugin 'tpope/vim-sleuth'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
+Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --omnisharp-completer' }
 Plugin 'majutsushi/tagbar'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'https://bitbucket.org/goeb/vimya.git'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'terryma/vim-expand-region'
-Plugin 'godlygeek/tabular'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'neilagabriel/vim-geeknote'
-Plugin 'gabesoft/vim-ags'
-" Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
-Plugin 'Raimondi/delimitMate'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'Yggdroot/indentLine'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-airline'
-Plugin 'c.vim', {'for': 'c'}
-Plugin 'justinmk/vim-syntax-extra', {'for': 'c'} " bison, flex, c syntax (operators, delimiters, functions..)
-Plugin 'hdima/python-syntax', {'for': 'python'} " neccesary, vim default python syntax has a regex bug as of 7.4.663
+Plugin 'ajh17/Spacegray.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'habamax/vim-skipit'
+Plugin 'ntpeters/vim-better-whitespace'
+
+" Plugin 'tpope/vim-sleuth'
+" Plugin 'terryma/vim-expand-region'
+" Plugin 'airblade/vim-gitgutter'
+" Plugin 'https://bitbucket.org/goeb/vimya.git'
+" Plugin 'w0ng/vim-hybrid'
+" Plugin 'neilagabriel/vim-geeknote'
+" Plugin 'gabesoft/vim-ags'
+" Plugin 'vim-scripts/Conque-GDB', {'on': 'ConqueGDB'}
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Plugin 'c.vim', {'for': 'c'}
+" Plugin 'justinmk/vim-syntax-extra', {'for': 'c'} " bison, flex, c syntax (operators, delimiters, functions..)
+" Plugin 'hdima/python-syntax', {'for': 'python'} " neccesary, vim default python syntax has a regex bug as of 7.4.663
+" Plugin 'godlygeek/tabular'
+" Plugin 'Raimondi/delimitMate'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -111,18 +119,18 @@ nnoremap k gk
 
 "GUI
 syntax enable
-let g:ycm_key_detailed_diagnostics= '<leader>D'
+colorscheme spacegray
+
 
 """""PLUGIN CONF
-
 "nerdcommenter
 let NERDSpaceDelims=1
 
 "vimya
-let g:vimyaShowLog = 1
-let g:vimyaTailCommand = 'Tail'
-nnoremap <leader>mo :py vimyaOpenLog ()<cr>
-vnoremap <leader>mr :py vimyaRefreshLog ()<cr>
+" let g:vimyaShowLog = 1
+" let g:vimyaTailCommand = 'Tail'
+" nnoremap <leader>mo :py vimyaOpenLog ()<cr>
+" vnoremap <leader>mr :py vimyaRefreshLog ()<cr>
 
 "NERDTree
 map <leader>d :NERDTreeToggle<CR>
@@ -135,15 +143,6 @@ let NERDTreeKeepTreeInNewTab=1
 "Tagbar
 map <leader>t :TagbarToggle<CR>
 
-"Expand Region
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
-nmap <leader>a= :Tabularize /=<CR>
-vmap <leader>a= :Tabularize /=<CR>
-nmap <leader>a: :Tabularize /:\zs<CR>
-vmap <leader>a: :Tabularize /:\zs<CR>
-
 " Airline
 let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary with the powerline symbols
 set laststatus=2 " always show statusline
@@ -153,48 +152,44 @@ let g:airline#extensions#tabline#enabled = 1	" automatically displays all buffer
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_idx_mode = 1	" display numbers in the tab line, and use mappings <leader>1 to <leader>9
 
-"Geeknote
-noremap <leader>g :Geeknote<CR>
-
 "YCM
+let g:ycm_key_detailed_diagnostics= '<leader>D'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_register_as_syntastic_checker = 1 
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-"Conque
-let g:ConqueTerm_Color = 2
-let g:ConqueTerm_CloseOnEnd = 1
-let g:ConqueTerm_StartMessages = 0
+" ctrlSF
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>s <Plug>CtrlSFCwordPath<CR>
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
-" Ultisnip
-let g:UltiSnipsEnableSnipMate = 0 " don't look for SnipMate snippets, in the 'snippets' dir
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-
-" Fix YCM + snippets
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<s-enter>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-
-" AGS fix stupid args
-let g:ags_agargs = {
-						\ '--break'             : [ '', '' ],
-						\ '--color'             : [ '', '' ],
-						\ '--color-line-number' : [ '"1;30"', '' ],
-						\ '--color-match'       : [ '"32;40"', '' ],
-						\ '--color-path'        : [ '"1;31"', '' ],
-						\ '--column'            : [ '', '' ],
-						\ '--context'           : [ 'g:ags_agcontext', '-C', '3' ],
-						\ '--group'             : [ '', '' ],
-						\ '--heading'           : [ '', '-H' ],
-						\ '--max-count'         : [ 'g:ags_agmaxcount', '-m', '2000' ],
-						\ }
-
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+map <leader>st :SyntasticToggleMode<CR>
+map <leader>sc :SyntasticCheck<CR>
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_checker_args='--ignore=E501,E225'
 let g:syntastic_python_pylint_post_args="--max-line-length=120"
+let g:syntastic_python_flake8_args='--ignore=E501,E225'
+let g:syntastic_debug=0
+let g:ycm_goto_buffer_command = 'vertical-split'
+
+" indent guides
+" let g:indent_guides_enable_on_vim_startup = 0
+map <leader>ig :IndentLinesToggle<CR>
+
+" rainbow parens
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
