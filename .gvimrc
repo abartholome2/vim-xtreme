@@ -11,8 +11,9 @@ map tm :tabm<Space>
 
 "GUI
 syntax enable
-" set gfn=ProggyCleanTT\ 14
-" set gfn=inconsolata:h16
+" set gfn=ProggyCleanTT\ 9
+set guifont=ProggyCleanTT\ 12
+" set gfn=Inconsolata\ 12
 " set shell=/bin/bash
 " set number 
 " set guioptions=em
