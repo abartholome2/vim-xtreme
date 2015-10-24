@@ -163,7 +163,7 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1	" display numbers in the ta
 "YCM
 let g:ycm_key_detailed_diagnostics= '<leader>D'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_register_as_syntastic_checker = 1 
+let g:ycm_register_as_syntastic_checker = 1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ctrlSF
