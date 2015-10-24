@@ -24,10 +24,12 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'ervandew/supertab'
 Plugin 'bling/vim-airline'
 Plugin 'ajh17/Spacegray.vim'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'habamax/vim-skipit'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'Raimondi/delimitMate'
 
 " Plugin 'tpope/vim-sleuth'
 " Plugin 'terryma/vim-expand-region'
@@ -43,7 +45,6 @@ Plugin 'ntpeters/vim-better-whitespace'
 " Plugin 'justinmk/vim-syntax-extra', {'for': 'c'} " bison, flex, c syntax (operators, delimiters, functions..)
 " Plugin 'hdima/python-syntax', {'for': 'python'} " neccesary, vim default python syntax has a regex bug as of 7.4.663
 " Plugin 'godlygeek/tabular'
-" Plugin 'Raimondi/delimitMate'
 
 call vundle#end()
 
@@ -119,7 +120,8 @@ nnoremap k gk
 
 "GUI
 syntax enable
-colorscheme spacegray
+" colorscheme spacegray
+colorscheme PaperColor
 
 
 """""PLUGIN CONF
