@@ -121,7 +121,11 @@ nnoremap k gk
 "GUI
 syntax enable
 " colorscheme spacegray
+set background=dark
 colorscheme PaperColor
+if $COLORTERM == 'gnome-terminal'
+		  set t_Co=256
+endif
 
 
 """""PLUGIN CONF
