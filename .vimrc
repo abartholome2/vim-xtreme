@@ -30,6 +30,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'habamax/vim-skipit'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Raimondi/delimitMate'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
 " Plugin 'tpope/vim-sleuth'
 " Plugin 'terryma/vim-expand-region'
@@ -71,7 +72,8 @@ set virtualedit=all
 "disable encryption
 set key=
 set wildmenu
-set textwidth=80
+" set textwidth=80
+set textwidth=1000
 set diffopt+=iwhite
 set fillchars=""
 set showfulltag
@@ -127,6 +129,8 @@ if $COLORTERM == 'gnome-terminal'
 		  set t_Co=256
 endif
 
+silent !mkdir $HOME/.vim/swap > /dev/null 2>&1
+set directory=$HOME/.vim/swap
 
 """""PLUGIN CONF
 "nerdcommenter
